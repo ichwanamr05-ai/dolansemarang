@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Destination extends Model
 {
@@ -11,13 +10,23 @@ class Destination extends Model
         'name',
         'category',
         'price_range',
+        'budget_tier',
+        'estimated_cost',
+        'best_time',
+        'opening_hours',
         'description',
         'address',
+        'area',
         'image_url',
     ];
 
-    public function reviews(): HasMany
+    public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 }

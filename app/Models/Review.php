@@ -3,18 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
     protected $fillable = [
         'destination_id',
-        'reviewer_name',
+        'user_name',
         'rating',
+        'rating_scenery',
+        'rating_access',
+        'rating_cleanliness',
+        'rating_facilities',
         'comment',
+        'photo_url',
+        'visit_period',
+        'crowd_status',
+        'helpful_count',
+        'is_flagged',
     ];
 
-    public function destination(): BelongsTo
+    public function destination()
     {
         return $this->belongsTo(Destination::class);
     }
